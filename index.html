@@ -1,112 +1,129 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0 minimum-scale=1.0"/>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
-    <!-- Google Fonts -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"/>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500;900&display=swap" rel="stylesheet"> 
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
-    <!-- Google Fonts -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
-    
-    <!--Archivo CSS-->
-    <link rel="stylesheet" href="style.css" />
-    <title>Movies Website</title>
-  </head>
+    <link rel="stylesheet" href="style.css">
+    <title>My Tasks List</title>
+    <script src="https://kit.fontawesome.com/8aa0eba165.js" crossorigin="anonymous"></script>
+</head>
 
-  <!--**************************ARRANCA EL CONTENIDO******************************-->
+<body>
 
-  <body>
-    <header>
-      <div class="container">
-        <h1 style="color: white;" class="mt-5">To do list</h1>    
-      </div>
-    </header>
+    <!-- Search Bar -->
+    <nav class="row navbar">
+        <div class="search  justify-content-around ml-5">
+            <form action="" class="nav-form row" id="searchForm">
+                <input type="search" id="search" class="nav-input col-9 col-xl-5 rounded" placeholder="Search task..." >
+                <div class="col-3 col-xl-1">
+                    <button class="btn btn-success d-flex justify-content-center align-items-center" style="height: 35px; ">Search</button>
+                </div>
+            </form> 
+        </div>
+    </nav>
 
-<!--BOTÓN DE LA VENTANA MODAL-->
-
-<div id="NuevaPeli" class="d-fluid flex-sm-row align-self-center">
-
-  <div id="boton-nuevapeli">
-
-    <!-- Open The Modal -->
-    <button id="myBtn" type="submit" class="btn btn-info">Agregar Película</button>
-
-    <!-- The Modal -->
-    <div id="myModal" class="modal">
-
-      <!-- Modal content -->
-      <div class="modal-content">
-        <span class="close">&times;</span>
-      
-      <!--Formulario-->
-        <form action="" id ="formulario" class="formulario" name="formulario">
-          <h2 class="formulario__titulo">Add task</h2>
-    <!--Validar form-->
-          <input type="text" class="formulario__input" id="codigo" />
-          <label for="" class="formulario__label" name= "codigo" >Code</label>
-    
-          <input type="text" class="formulario__input" id="titulo" />
-          <label for="" class="formulario__label" name="titulo" >Title</label>
-    
-          <input type="text" class="formulario__input" id="descripcion"/>
-          <label for="" class="formulario__label" name="descripcion" >Descripción</label>
-    
-          <select class="formulario__input" id="categoria">
-            <option selected value="">Categorías</option>
-            <option value="Acción">Work</option>
-            <option value="Aventura">Study</option>
-            <option value="Comedia">Fun</option>
-            <option value="Familiar">Gym</option>
-            <option value="Terror">Leisure</option>
-            <option value="Romance">Family</option>
-            <option value="Drama">Others</option>
-          </select>
-          
-          <button type="submit" class="btn btn-primary formulario__submit">SEND</button>
+    <!-- Form -->
+    <div class="container mt-4">
+      <h1 class="display-4 text-center">
+        <i class="fas fa-book-open text-primary"></i> My<span class="text-primary">Tasks</span>List</h1>
+      <div class="">
+        <form class="" id="noteForm">
+            <div class="">
+              <label for="" class="mt-3">Title</label>
+                <input type="text" id="title" required  class="note-title w-100" maxlength="60" placeholder="Title">
+            </div>
+            <div class="input-group">
+              <div class="">
+                <label for="" class="mt-3">Category</label>
+              </div>
+              <div style="min-width: 100%;">
+                <select class="custom-select" id="categoryInput">
+                  <option value="" disabled selected>Choose an option</option>
+                  <option value="Study">Study</option>
+                  <option value="Work">Work</option>
+                  <option value="Fun">Fun</option>
+                  <option value="Money">Money</option>
+                  <option value="Family">Family</option>
+                  <option value="Others">Others</option>
+                </select>
+              </div>
+            </div>
+            <div class="">
+              <label for="" class="mt-3">Text</label>
+                <textarea name="" form="noteForm" id="text" cols="25" rows="5" maxlength="500"
+                    class="note-input w-100" placeholder="Write your activities"
+                    style="resize: none;"></textarea>
+            </div>
+            <div class="d-flex justify-content-around mb-4 mt-3">
+                <button type="submit" class="btn btn-primary w-100">Add Card</button>
+            </div>
         </form>
-
-      </div>
     </div>
-
-  </div> 
-
 </div>
+    <!-- Tasks -->
+    <section class="container text-white-50">
+        <div class="row" id="notesAlmacenator">
+            
+        </div>
+    </section>
 
-    <!--Tabla de peliculas-->
+    <!-- Modal -->
+    <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"  >
+        <div class="modal-dialog" role="document" >
+          <div class="modal-content "  >
+            <div class="modal-header" >
+              <h5 class="modal-title text-black" id="exampleModalLabel">Edit task</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form action="" class="d-flex flex-column container" id="formEdit">
+                  <label for="title">Title</label>
+                  <input id="editedTitle" type="text" required class="w-100 border border-secondary rounded" style="background-color: transparent;">
+                  <label for="category" class="mt-2">Category</label>
+                  <select id="editedCategory" class="custom-select "
+                        style="max-width: 100%;">
+                        <option value="" disabled selected>Choose an option</option>
+                        <option value="Study">Study</option>
+                        <option value="Work">Work</option>
+                        <option value="Fun">Fun</option>
+                        <option value="Money">Money</option>
+                        <option value="Family">Family</option>
+                        <option value="Others">Others</option>
+                    </select>
+                  <label for="text" class="mt-2">Text</label>
+                  <textarea id="editedText" name="" id="" cols="50" rows="10" class="w-100 border border-secondary rounded" style="background-color: transparent; resize: none;" maxlength="500"></textarea>
+                    <div class="modal-footer d-flex flex-wrap row justify-content-end">
+                            <div class=" p-2 col-4">
+                                <button type="submit" class="btn btn-primary w-100">
+                                    Update
+                                </button>
+                            </div>
+                            <div class=" p-2 col-4">
+                                <button type="button" class="btn btn-danger w-100" data-dismiss="modal">
+                                    Close
+                                </button>
+                            </div>
+                        
+                    </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
    
-<div id= "listaPeliculas" class="Contenedor__pelis"> 
-
-  <table id= "tabla">
-
-    <thead>
-    <tr> 
-        <th>Código</th> 
-        <th>Película</th> 
-        <th>Descripción</th> 
-        <th>Categorías</th> 
-        <th>Estado</th> 
-        <th>Acciones</th> 
-    </tr>
-    </thead>
-  </table>
-
-</div>
-
-<br></br>
-<br></br>
-      
 
 
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+<script src="app.js"></script>
 
-
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
-    <script src="app.js"></script>
 </body>
+
+
+
 </html>
