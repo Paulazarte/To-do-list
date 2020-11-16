@@ -1,2 +1,2 @@
 # To-do-list
-To do list project.
+CRUD system project with JavaScript and Boostrap.
