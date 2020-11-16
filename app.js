@@ -48,7 +48,7 @@ function displayNotes(notes) {
         <div class="col-xl-3 col-md-4 col-lg-4 col-sm-6 col-12 p-2 d-flex justify-content-center">
         <div class="card text-white bg-warning mb-3" style=" width: 100%; height: auto; text-align: center;">
         <div class="card-header"
-        <h6 class="card-subtitle mb-2 text-muted">${note.category}</h6> </div>
+        <h6 class="card-subtitle mb-2 text-muted">${note.category}</h6></div>
             <div class="card-body">
                 <h5 class="card-title">${note.title}</h5>
                 <p class="card-text">${note.text}</p>
